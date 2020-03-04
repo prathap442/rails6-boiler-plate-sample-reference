@@ -1,4 +1,3 @@
-alert("Hello World");
-setTimeout(()=>{
+setInterval(()=>{
   alert("All good");
-},false)
+},5000)
