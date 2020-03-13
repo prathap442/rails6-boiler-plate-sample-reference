@@ -14,3 +14,9 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+//here what ever we write in the require statement refers to hte path inside the ndoe vmodules
+import $ from 'jquery';
+import "bootstrap"
+window.$ = $;
+import("../stylesheets/application")
