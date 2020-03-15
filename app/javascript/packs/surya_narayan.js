@@ -1,3 +1,1 @@
-setInterval(()=>{
-  alert("All good");
-},5000)
+console.log("good")
