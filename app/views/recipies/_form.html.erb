@@ -1,0 +1,54 @@
+<%= form_with(model: recipy, local: true) do |form| %>
+  <% if recipy.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(recipy.errors.count, "error") %> prohibited this recipy from being saved:</h2>
+
+      <ul>
+        <% recipy.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <h1>Add Ingredient Fields</h1>
+
+  <div class="field">
+    <%= form.fields_for :ingredients do |ingredient|%>
+      <%= render partial "ingredient_fields", locales:{f: ingredient}%>
+    <% end %>
+  </div><!--fields-->
+
+  <div class="links">
+    <%= link_to_add_association "Add Ingredient", form, :ingredients %>
+  </div>
+
+  <h1>Add Step Fields</h1>
+
+  <div class="field">
+    <%= form.fields_for :steps do |step|%>
+      <%= render "step_fields", locales: {f: step} %>
+    <% end %>
+  </div><!--fields-->
+
+  <div class="links">
+    <%= link_to_add_association "Add Step", form, :steps %>
+  </div>
+
+
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

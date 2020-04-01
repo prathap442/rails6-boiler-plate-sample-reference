@@ -10,10 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_04_035835) do
+ActiveRecord::Schema.define(version: 2020_04_01_071901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "ingredients", force: :cascade do |t|
+    t.text "content"
+    t.bigint "recipie_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["recipie_id"], name: "index_ingredients_on_recipie_id"
+  end
+
+  create_table "recipies", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "steps", force: :cascade do |t|
+    t.text "direction"
+    t.bigint "recipie_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["recipie_id"], name: "index_steps_on_recipie_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -22,4 +45,6 @@ ActiveRecord::Schema.define(version: 2020_03_04_035835) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "ingredients", "recipies", column: "recipie_id"
+  add_foreign_key "steps", "recipies", column: "recipie_id"
 end
