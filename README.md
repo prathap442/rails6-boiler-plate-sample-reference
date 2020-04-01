@@ -23,3 +23,12 @@ removing the momentjs fron end react package through yarn
   as you know that the bootstrap requires internally requires the jquery for the sake of its working to take place correctly we will try to enable it .
   $ yarn add jquery
 ```
+
+# Shot1
+![alt text](https://github.com/prathap442/rails6-boiler-plate-sample-reference/blob/bootstrap_sass_checking/shot1.png)
+
+# Shot2
+![alt text](https://github.com/prathap442/rails6-boiler-plate-sample-reference/blob/bootstrap_sass_checking/shot2.png)
+
+# Shot3
+![alt text](https://github.com/prathap442/rails6-boiler-plate-sample-reference/blob/bootstrap_sass_checking/shot3.png)
